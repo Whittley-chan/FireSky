@@ -8,9 +8,12 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 const Uint16			wWidth = 1440;
 const Uint16			wHeight = 960;
+
+const char*             Title = "FireSky v.0.0.142";
 
 Uint8       RenderColorR = 255;
 Uint8       RenderColorG = 255;
@@ -22,8 +25,12 @@ SDL_Renderer *renderer = nullptr;
 SDL_Surface *ScreenSurface = nullptr;
 SDL_Surface *BackgroundIMG = nullptr;
 SDL_Surface *HUDIMG = nullptr;
+SDL_Surface *ObjIMG = nullptr;
 SDL_Texture *BackgroundTexture = nullptr;
 SDL_Texture *HUDTexture = nullptr;
+SDL_Texture* ObjTexture = nullptr;
+
+
 SDL_FRect HUDRect = 
     {
         0,
@@ -31,6 +38,14 @@ SDL_FRect HUDRect =
         wWidth / 2,
         wHeight / 2,
     };
+
+SDL_FRect ObjRect = 
+	{
+		720,
+		480,
+		64,
+		64,
+	};
 
 //      Initializations:
 
@@ -59,9 +74,11 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 bool LoadBackgroundImage()
     {
         bool success = true;
-        BackgroundIMG = IMG_Load("resources/popcat.png");
+        BackgroundIMG = IMG_Load("resources/Background_1.png");
 		HUDIMG = IMG_Load("resources/2.png");
+		ObjIMG = IMG_Load("resources/F_22.png");
 
+        /*
         if (!BackgroundIMG || !HUDIMG)
             {
                 success = false;
@@ -74,7 +91,19 @@ bool LoadBackgroundImage()
 				SDL_DestroySurface(BackgroundIMG);
                 SDL_DestroySurface(HUDIMG);
             }
+        */
 
+		if (!ObjIMG)
+			{
+			    success = false;
+			}
+		else
+			{
+                BackgroundTexture = SDL_CreateTextureFromSurface(renderer, BackgroundIMG);
+			    ObjTexture = SDL_CreateTextureFromSurface(renderer, ObjIMG);
+				SDL_DestroySurface(BackgroundIMG);
+                SDL_DestroySurface(ObjIMG);
+            }
         return success;
     }
 
@@ -82,10 +111,11 @@ bool LoadBackgroundImage()
 
 void Render() 
     {
-        //SDL_RenderClear(renderer);
+        SDL_RenderClear(renderer);
         //SDL_SetRenderDrawColor(renderer, RenderColorR, RenderColorG, RenderColorB, RenderOpaqueAlpha);
         SDL_RenderTexture(renderer, BackgroundTexture, NULL, NULL);
-		SDL_RenderTexture(renderer, HUDTexture, NULL, &HUDRect);
+		//SDL_RenderTexture(renderer, HUDTexture, NULL, &HUDRect);
+	    SDL_RenderTexture(renderer, ObjTexture, NULL, &ObjRect);
         SDL_RenderPresent(renderer);
     }
 
@@ -113,7 +143,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
                 return SDL_APP_FAILURE;
             }
 
-        window = SDL_CreateWindow("Game", wWidth, wHeight, NULL);
+        window = SDL_CreateWindow(Title, wWidth, wHeight, NULL);
         
         if (!window) 
             {
@@ -140,8 +170,9 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
         if (!LoadBackgroundImage())
             {
                 SDL_Log("Image load failed.");
-                return SDL_APP_FAILURE;
+                //return SDL_APP_FAILURE;
 			}
+
         if (!SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "DEBUG", "Lorem ipsum Dolor sit amet", window))
             {
                 SDL_Log("Error creating debug message: %s", SDL_GetError());
