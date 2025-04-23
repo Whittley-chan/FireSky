@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FireSky", "FireSky.vcxproj", "{70CDAAFF-13F9-432F-8B8D-CD241706743F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FireSky", "FireSky.vcxproj", "{77449269-9E30-391B-A7E9-6AB9901A1E1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,15 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{70CDAAFF-13F9-432F-8B8D-CD241706743F}.Debug|x64.ActiveCfg = Debug|x64
-		{70CDAAFF-13F9-432F-8B8D-CD241706743F}.Debug|x64.Build.0 = Debug|x64
-		{70CDAAFF-13F9-432F-8B8D-CD241706743F}.Release|x64.ActiveCfg = Release|x64
-		{70CDAAFF-13F9-432F-8B8D-CD241706743F}.Release|x64.Build.0 = Release|x64
+		{77449269-9E30-391B-A7E9-6AB9901A1E1C}.Debug|x64.ActiveCfg = Debug|x64
+		{77449269-9E30-391B-A7E9-6AB9901A1E1C}.Debug|x64.Build.0 = Debug|x64
+		{77449269-9E30-391B-A7E9-6AB9901A1E1C}.Release|x64.ActiveCfg = Release|x64
+		{77449269-9E30-391B-A7E9-6AB9901A1E1C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A473860-A1BC-32EE-B43C-B699A9437CBF}
 	EndGlobalSection
 EndGlobal
