@@ -5,8 +5,16 @@
 
 #include "graphics.h"
 
+typedef struct 
+        SDL_AppState
+	{
+	    int dummy;
+	}   SDL_AppState;
 
-//      Initializations:
+void SDL_AppQuit(void* appstate, SDL_AppResult result) 
+    {
+
+    }
 
 
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) 
@@ -22,7 +30,6 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 SDL_AppResult SDL_AppIterate(void* appstate) // Main game loop - Everything runs in realtime
     {   
         Render();
-		Update();
         return SDL_APP_CONTINUE;
     }
 

@@ -304,10 +304,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\Admin\Desktop\FireSky\src\main.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="src\graphics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics.h" />
+    <ClInclude Include="src\menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
