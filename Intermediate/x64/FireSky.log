@@ -1,4 +1,6 @@
 ﻿  main.cpp
   graphics.cpp
+  MainMenu.cpp
+  Render.cpp
   Generating Code...
   FireSky.vcxproj -> C:\Users\Admin\Desktop\FireSky\Build\x64\FireSky.exe
