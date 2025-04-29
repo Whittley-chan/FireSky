@@ -13,6 +13,9 @@
     <ClCompile Include="src\Render.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ingame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -32,6 +35,11 @@
     <ClInclude Include="src\Render.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Appstate.h" />
+    <ClInclude Include="src\Appstate.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ingame.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

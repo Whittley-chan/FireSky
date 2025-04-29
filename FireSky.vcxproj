@@ -305,12 +305,14 @@
   <ItemGroup>
     <ClCompile Include="C:\Users\Admin\Desktop\FireSky\src\main.cpp" />
     <ClCompile Include="src\graphics.cpp" />
+    <ClCompile Include="src\Ingame.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
     <ClCompile Include="src\Render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Appstate.h" />
     <ClInclude Include="src\graphics.h" />
+    <ClInclude Include="src\Ingame.h" />
     <ClInclude Include="src\main.h" />
     <ClInclude Include="src\MainMenu.h" />
     <ClInclude Include="src\Render.h" />
