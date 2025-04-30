@@ -7,10 +7,6 @@
 #include "main.h"
 
 
-
-
-
-
 void SDL_AppQuit(void* appstate, SDL_AppResult result) 
     {
         SDL_free(appstate);
@@ -19,8 +15,6 @@ void SDL_AppQuit(void* appstate, SDL_AppResult result)
 
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) 
     {
-	    Appstate* as = (Appstate*)appstate;
-        
         switch(event->type)
             {
                 case SDL_EVENT_QUIT:
@@ -36,12 +30,12 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 								{
 									case MAIN_MENU:
 										{
-											MainMenuMouseHandler(as, event);
+											MainMenuMouseHandler(event);
 											break;
 										}
 									case IN_GAME:
 										{
-											IngameMouseHandler(as, event);
+											IngameMouseHandler(event);
 											break;
 										}
 									case PAUSED:
@@ -68,24 +62,24 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 
 SDL_AppResult SDL_AppIterate(void* appstate)
 	{
-	    Appstate* as = (Appstate*)appstate;
 		if (as->Context == QUIT)
 			{
 				return SDL_APP_SUCCESS;
 			}
         Render(as);
 		SDL_RenderPresent(as->renderer);
-		SDL_Delay(16);
+		SDL_Delay((Uint32)(1000 / TARGET_FPS));
         return SDL_APP_CONTINUE;
     }
 
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
     {
-	    Appstate* as = (Appstate*)SDL_calloc(1, sizeof(Appstate));
+	    as = (Appstate*)SDL_calloc(1, sizeof(Appstate));
 
 
 		if (!as)
 			{
+				std::cout << "Appstate error!\n";
 			    return SDL_APP_FAILURE;
 			}
 		else
@@ -93,8 +87,9 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
 			    *appstate = as;
 			}
 
-        Init(as);
+        Init();
         
+		std::cout << SDL_GetError() << std::endl;
 
         return SDL_APP_CONTINUE;
     }

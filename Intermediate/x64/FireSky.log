@@ -1,4 +1,6 @@
 ﻿  main.cpp
+  Appstate.cpp
+  Entity.cpp
   graphics.cpp
   Ingame.cpp
   MainMenu.cpp
