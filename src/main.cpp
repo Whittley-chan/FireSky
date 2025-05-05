@@ -51,11 +51,20 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 						    }
 					    break;
 					}
+				case SDL_EVENT_KEY_DOWN:
+					{
+						if (as->Context == IN_GAME)
+							{
+								IngameKeyboardHandler(event);
+								break;
+							}
+						break;
+					}
                 default:
                     {
                         break;
                     }
-            }
+			}	
         return SDL_APP_CONTINUE;
     }
 
@@ -66,9 +75,9 @@ SDL_AppResult SDL_AppIterate(void* appstate)
 			{
 				return SDL_APP_SUCCESS;
 			}
-        Render(as);
+        Render();
 		SDL_RenderPresent(as->renderer);
-		SDL_Delay((Uint32)(1000 / TARGET_FPS));
+		SDL_Delay((Uint32)DELTA_TIME);
         return SDL_APP_CONTINUE;
     }
 
@@ -76,10 +85,8 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
     {
 	    as = (Appstate*)SDL_calloc(1, sizeof(Appstate));
 
-
 		if (!as)
 			{
-				std::cout << "Appstate error!\n";
 			    return SDL_APP_FAILURE;
 			}
 		else
@@ -89,7 +96,6 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
 
         Init();
         
-		std::cout << SDL_GetError() << std::endl;
 
         return SDL_APP_CONTINUE;
     }
