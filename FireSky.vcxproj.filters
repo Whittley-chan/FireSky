@@ -1,35 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Admin\Desktop\FireSky\src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MainMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Render.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ingame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Appstate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{85674205-8521-3516-ACFD-C7F08EE6C72C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Appstate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Elements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameOver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ingame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PauseMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Appstate.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Elements.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameOver.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\graphics.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ingame.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main.h">
@@ -38,17 +62,22 @@
     <ClInclude Include="src\MainMenu.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\PauseMenu.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\Render.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Appstate.h">
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\SDL3.dll">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Ingame.h">
+    </None>
+    <None Include="src\SDL3_image.dll">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Entity.h">
+    </None>
+    <None Include="src\SDL3_ttf.dll">
       <Filter>Source Files</Filter>
-    </ClInclude>
+    </None>
   </ItemGroup>
 </Project>

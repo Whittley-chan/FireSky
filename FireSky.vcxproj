@@ -21,6 +21,35 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Appstate.cpp" />
+    <ClCompile Include="src\Elements.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\GameOver.cpp" />
+    <ClCompile Include="src\graphics.cpp" />
+    <ClCompile Include="src\Ingame.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MainMenu.cpp" />
+    <ClCompile Include="src\PauseMenu.cpp" />
+    <ClCompile Include="src\Render.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Appstate.h" />
+    <ClInclude Include="src\Elements.h" />
+    <ClInclude Include="src\Entity.h" />
+    <ClInclude Include="src\GameOver.h" />
+    <ClInclude Include="src\graphics.h" />
+    <ClInclude Include="src\Ingame.h" />
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\MainMenu.h" />
+    <ClInclude Include="src\PauseMenu.h" />
+    <ClInclude Include="src\Render.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\SDL3.dll" />
+    <None Include="src\SDL3_image.dll" />
+    <None Include="src\SDL3_ttf.dll" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{77449269-9E30-391B-A7E9-6AB9901A1E1C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -137,7 +166,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib;$(SolutionDir)SDL\lib\x64\SDL3_ttf.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -188,7 +217,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib;$(SolutionDir)SDL\lib\x64\SDL3_ttf.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -239,7 +268,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib;$(SolutionDir)SDL\lib\x64\SDL3_ttf.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -289,7 +318,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;$(SolutionDir)SDL\lib\x64\SDL3.lib;$(SolutionDir)SDL\lib\x64\SDL3_image.lib;$(SolutionDir)SDL\lib\x64\SDL3_test.lib;$(SolutionDir)SDL\lib\x64\SDL3_ttf.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -302,24 +331,6 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="C:\Users\Admin\Desktop\FireSky\src\main.cpp" />
-    <ClCompile Include="src\Appstate.cpp" />
-    <ClCompile Include="src\Entity.cpp" />
-    <ClCompile Include="src\graphics.cpp" />
-    <ClCompile Include="src\Ingame.cpp" />
-    <ClCompile Include="src\MainMenu.cpp" />
-    <ClCompile Include="src\Render.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Appstate.h" />
-    <ClInclude Include="src\Entity.h" />
-    <ClInclude Include="src\graphics.h" />
-    <ClInclude Include="src\Ingame.h" />
-    <ClInclude Include="src\main.h" />
-    <ClInclude Include="src\MainMenu.h" />
-    <ClInclude Include="src\Render.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

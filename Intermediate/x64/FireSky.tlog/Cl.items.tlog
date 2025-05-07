@@ -1,7 +1,10 @@
-C:\Users\Admin\Desktop\FireSky\src\main.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\main.obj
 C:\Users\Admin\Desktop\FireSky\src\Appstate.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\Appstate.obj
+C:\Users\Admin\Desktop\FireSky\src\Elements.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\Elements.obj
 C:\Users\Admin\Desktop\FireSky\src\Entity.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\Entity.obj
+C:\Users\Admin\Desktop\FireSky\src\GameOver.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\GameOver.obj
 C:\Users\Admin\Desktop\FireSky\src\graphics.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\graphics.obj
 C:\Users\Admin\Desktop\FireSky\src\Ingame.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\Ingame.obj
+C:\Users\Admin\Desktop\FireSky\src\main.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\main.obj
 C:\Users\Admin\Desktop\FireSky\src\MainMenu.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\MainMenu.obj
+C:\Users\Admin\Desktop\FireSky\src\PauseMenu.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\PauseMenu.obj
 C:\Users\Admin\Desktop\FireSky\src\Render.cpp;C:\Users\Admin\Desktop\FireSky\Intermediate\x64\Render.obj

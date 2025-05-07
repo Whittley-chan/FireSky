@@ -1,11 +1,11 @@
 #define SDL_MAIN_USE_CALLBACKS
 
-#include <vector>
 #include "SDL3/SDL.h"
 #include "SDL3/SDL_main.h"
 
 #include "main.h"
 
+const bool* Keyboard = nullptr;
 
 void SDL_AppQuit(void* appstate, SDL_AppResult result) 
     {
@@ -40,7 +40,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 										}
 									case PAUSED:
 										{
-											SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "DEBUG", "Pause Menu Clicked", as->window);
+											PauseMenuMouseHandler(event);
 											break;
 										}
 									default:
@@ -51,15 +51,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 						    }
 					    break;
 					}
-				case SDL_EVENT_KEY_DOWN:
-					{
-						if (as->Context == IN_GAME)
-							{
-								IngameKeyboardHandler(event);
-								break;
-							}
-						break;
-					}
+
                 default:
                     {
                         break;
@@ -75,6 +67,9 @@ SDL_AppResult SDL_AppIterate(void* appstate)
 			{
 				return SDL_APP_SUCCESS;
 			}
+		
+		Keyboard = SDL_GetKeyboardState(NULL);
+		
         Render();
 		SDL_RenderPresent(as->renderer);
 		SDL_Delay((Uint32)DELTA_TIME);
@@ -84,7 +79,7 @@ SDL_AppResult SDL_AppIterate(void* appstate)
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
     {
 	    as = (Appstate*)SDL_calloc(1, sizeof(Appstate));
-
+		
 		if (!as)
 			{
 			    return SDL_APP_FAILURE;
@@ -95,6 +90,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char** argv)
 			}
 
         Init();
+
         
 
         return SDL_APP_CONTINUE;
