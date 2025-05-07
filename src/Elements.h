@@ -1,0 +1,24 @@
+#pragma once
+
+
+#ifndef ELEMENTS_H
+#define ELEMENTS_H
+
+#include "main.h"
+
+extern SDL_FRect* ScoreboardRect;
+
+extern SDL_FRect* MainMenuBackgroundRect;
+extern SDL_FRect* PlayButtonRect;
+extern SDL_FRect* QuitButtonRect;
+extern SDL_FRect* PauseQuitButtonRect;
+
+
+extern SDL_FRect* PauseButtonRect;
+extern SDL_FRect* PauseMenuRect;
+extern SDL_FRect* ResumeButtonRect;
+
+
+SDL_Texture* LoadFont(const char* contents, float size);
+
+#endif // !ELEMENTS_H
