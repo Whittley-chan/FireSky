@@ -45,11 +45,6 @@
     <ClInclude Include="src\PauseMenu.h" />
     <ClInclude Include="src\Render.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="src\SDL3.dll" />
-    <None Include="src\SDL3_image.dll" />
-    <None Include="src\SDL3_ttf.dll" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{77449269-9E30-391B-A7E9-6AB9901A1E1C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

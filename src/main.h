@@ -17,12 +17,14 @@
 
 #include <cstdlib>
 #include <iostream>
-
+#include <iomanip>
 #include <string>
 #include <cstring>
 #include <random>
 #include <type_traits>
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 template <typename T>
 T RNG(T a, T b) 

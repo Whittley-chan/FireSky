@@ -6,28 +6,29 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-constexpr float DEFAULT_PLAYER_HP = 100;
+constexpr float DEFAULT_PLAYER_HP = 100.0f;
 constexpr float DEFAULT_ENEMY_HP = 100.0f;
-constexpr float DEFAULT_PLAYER_DAMAGE = 20.0f;
+constexpr float DEFAULT_PLAYER_DAMAGE = 12.0f;
 constexpr float DEFAULT_ENEMY_DAMAGE = 8.0f;
-constexpr float DEFAULT_PROJECTILE_VELOCITY = 1.15f;
-constexpr float DEFAULT_GUN_COOLDOWN = 75.0f;
-constexpr float DEFAULT_ENEMY_GUN_COOLDOWN = 1400.0f;
+
+constexpr float DEFAULT_ROCKET_DAMAGE = 300.0f;
+
+constexpr float DEFAULT_BULLET_VELOCITY = 1.35f;
+constexpr float DEFAULT_ROCKET_VELOCITY = 1.55f;
+
+constexpr float DEFAULT_GUN_COOLDOWN = 300.0f;
+constexpr float DEFAULT_ENEMY_GUN_COOLDOWN = 1300.0f;
 constexpr float DEFAULT_ENEMY_MOVEMENT_COOLDOWN = 750.0f;
+constexpr float DEFAULT_ROCKET_COOLDOWN = 3000.0f;
+
+
+
 
 enum Movement
 	{
 		UNKNOWN = 0,
 		LEFT = 1,
-		RIGHT = 2
-	};
-
-enum EnemyType
-	{
-		Type_1 = 1,
-		Type_2 = 2,
-		Type_3 = 3
-
+		RIGHT = 2,
 	};
 
 
@@ -43,10 +44,28 @@ class Bullet
 
 			bool active = false;
 
-			Bullet() = default;
 			Bullet(SDL_FRect* _hitbox, SDL_Texture* texture);
 
 	};
+
+typedef class Rocket
+	{
+		public:
+			SDL_FRect* Rect;
+			SDL_FRect* ProximityFuseZone;
+			SDL_Texture* texture;
+
+			float Damage = DEFAULT_ROCKET_DAMAGE;
+
+			float cooldown = 0.0f;
+
+			bool active = false;
+
+			Rocket(SDL_FRect* _Rect, SDL_Texture* texture);
+			void Launch();
+	} RKT;
+
+
 
 class Player
 	{
@@ -56,15 +75,15 @@ class Player
 			SDL_FRect* hitbox;
 			SDL_Texture* texture;
 
+			bool GatlingUpgraded = false;
+			bool RocketUpgraded = false;
+			bool MissileUpgraded = false;
+
 			float cooldown = DEFAULT_GUN_COOLDOWN;
-			bool isMoving = false;
-			Movement Direction = UNKNOWN;
 
 			Player(SDL_FRect* _hitbox, SDL_Texture* _texture);
 
 			void Fire();
-			void Move(float velocity);
-
 	};
 
 class Enemy
@@ -81,7 +100,6 @@ class Enemy
 
 			Movement Direction = UNKNOWN;
 
-			
 			bool inMovementCooldown = false;
 			bool active = false;
 			void Fire();
@@ -90,7 +108,6 @@ class Enemy
 
 			Enemy(SDL_FRect* _hitbox, SDL_Texture* _texture);
 	}; 
-
 
 extern std::vector<Bullet*> PlayerBulletPool;
 extern std::vector<Bullet*> EnemyBulletPool;

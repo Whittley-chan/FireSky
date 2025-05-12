@@ -1,10 +1,34 @@
 #include "Entity.h"
 
+
+
 Bullet::Bullet(SDL_FRect* _hitbox, SDL_Texture* _texture)
 	{
 		hitbox = _hitbox;
 		texture = _texture;
 	}
+
+Rocket::Rocket(SDL_FRect* _Rect, SDL_Texture* _texture)
+	{
+		Rect = _Rect;
+		texture = _texture;
+
+		ProximityFuseZone = new SDL_FRect {Rect->x - 20, Rect->y - 20, Rect->w + 40.0f, Rect->h + 40.0f};
+	}
+
+void Rocket::Launch()
+	{
+		if ((!active) && (cooldown <= 0.0f))
+			{	
+				Rect->x = player->hitbox->x + 27.5f;
+				Rect->y = player->hitbox->y;
+				ProximityFuseZone->x = Rect->x - 20;
+				ProximityFuseZone->y = Rect->y - 20;
+
+				active = true;
+			}
+	}
+
 
 Player::Player(SDL_FRect* _hitbox, SDL_Texture* _texture)
 	{
@@ -19,22 +43,13 @@ void Player::Fire()
 		if (cooldown <= 0)
 			{
 				SpawnBullet(PLAYER);
-				cooldown = DEFAULT_GUN_COOLDOWN;
+				cooldown = (!GatlingUpgraded) ? DEFAULT_GUN_COOLDOWN : DEFAULT_GUN_COOLDOWN / 5;
 			}
 		else
 			{
 				cooldown -= DELTA_TIME;
 			}
 		
-	}
-
-void Player::Move(float velocity)
-	{
-		if ((hitbox->x+velocity) < 324 || (hitbox->x + velocity) > 1302)
-			{
-				return;
-			}
-		hitbox->x += velocity;
 	}
 
 Enemy::Enemy(SDL_FRect* _hitbox, SDL_Texture* _texture)
@@ -60,7 +75,7 @@ void Enemy::Move(float velocity)
 	{	
 		if (destination == NULL && !inMovementCooldown)
 			{
-				destination = RNG(328.0f, 1352.0f);
+				destination = RNG(328.0f, 1277.0f);
 			}
 		else if (destination != NULL)
 			{

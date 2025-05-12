@@ -69,15 +69,4 @@
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="src\SDL3.dll">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="src\SDL3_image.dll">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="src\SDL3_ttf.dll">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
 </Project>

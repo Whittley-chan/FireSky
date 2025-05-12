@@ -1,6 +1,6 @@
 #include "PauseMenu.h"
 
-bool Pause_Loaded = false;
+static bool Loaded = false;
 
 BGR* PauseMenu = new BGR(PauseMenuRect, nullptr);
 Button* ResumeButton = new Button(ResumeButtonRect, nullptr);
@@ -8,11 +8,14 @@ Button* PauseQuitButton = new Button(PauseQuitButtonRect, nullptr);
 
 void PauseMenuRender()
 	{
-		if (!Pause_Loaded)
+		if (!Loaded)
 			{
 				PauseMenu->BGRImg = LoadIMG("./resources/Background/PauseMenu.png");
 				ResumeButton->ButtonTexture = LoadFont(" RESUME ", 96);
 				PauseQuitButton->ButtonTexture = LoadFont("  QUIT  ", 96);
+				
+
+				Loaded = true;
 			}
 		IngameRender();
 		SDL_RenderTexture(as->renderer, PauseMenu->BGRImg, NULL, PauseMenu->BGRect);
@@ -47,7 +50,12 @@ void PauseMenuChangeState(GameContext context)
 				case IN_GAME:
 					{
 						as->Context = IN_GAME;
+						SDL_DestroyTexture(PauseMenu->BGRImg);
+						SDL_DestroyTexture(PauseQuitButton->ButtonTexture);
+						SDL_DestroyTexture(ResumeButton->ButtonTexture);
+
 						Paused = false;
+						Loaded = false;
 						break;
 					}
 				case QUIT:

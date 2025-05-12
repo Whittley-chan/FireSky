@@ -21,17 +21,17 @@ UI::UI_Element(SDL_FRect* _rect, SDL_Texture* _text)
 
 SDL_Texture* LoadIMG(const char* path)
     {
-	    SDL_Surface* surface = new SDL_Surface;
-		surface = IMG_Load(path);
+	    SDL_Surface* surface = IMG_Load(path);
 		if (!surface)
 		    {
 		        SDL_Log("Error creating surface: %s", SDL_GetError());
 		        return nullptr;
 		    }
 
-		SDL_Texture* texture = new SDL_Texture;
-		texture	= SDL_CreateTextureFromSurface(as->renderer, surface);
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(as->renderer, surface);
 	    SDL_DestroySurface(surface);
+		surface = nullptr;
+
 	    if (!texture)
 		    {
 		        SDL_Log("Error creating texture: %s", SDL_GetError());

@@ -11,13 +11,25 @@ static void changeState()
 		SDL_DestroyTexture(PlayButton->ButtonTexture);
 		SDL_DestroyTexture(QuitButton->ButtonTexture);
 
+		menuBackground->BGRImg = nullptr;
+		PlayButton->ButtonTexture = nullptr;
+		QuitButton->ButtonTexture = nullptr;
+
 		delete menuBackground->BGRect;
 		delete PlayButton->ButtonRect;
 		delete QuitButton->ButtonRect;
 
+		menuBackground->BGRect = nullptr;
+		PlayButton->ButtonRect = nullptr;
+		QuitButton->ButtonRect = nullptr;
+
 		delete menuBackground;
 		delete PlayButton;
 		delete QuitButton;
+
+		menuBackground = nullptr;
+		PlayButton = nullptr;
+		QuitButton = nullptr;
 	}
 
 void MainMenuMouseHandler(SDL_Event* event)

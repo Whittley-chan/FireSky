@@ -8,10 +8,32 @@
 const bool* Keyboard = nullptr;
 
 void SDL_AppQuit(void* appstate, SDL_AppResult result) 
-    {
+    {	
+		if (Highscores.size() > 0)
+			{
+				std::ofstream file("./resources/Highscores.txt");
+				if (!file)
+					{
+						as->Context = QUIT;
+					}
+				auto i = Highscores.begin();
+				while (i != Highscores.end() && *i > Score) 
+					{
+						i++;
+					}
+				Highscores.insert(i, Score);
+				Highscores.pop_back();
+
+				for (unsigned long int i : Highscores)
+					{
+						file << i << "\n";
+					}
+
+				file.close();
+				
+			}
         SDL_free(appstate);
     }
-
 
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) 
     {
@@ -43,6 +65,11 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 											PauseMenuMouseHandler(event);
 											break;
 										}
+									case GAME_OVER:
+										{
+											GameOverMouseHandler(event);
+											break;
+										}
 									default:
 										{
 											break;
@@ -64,7 +91,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 SDL_AppResult SDL_AppIterate(void* appstate)
 	{
 		if (as->Context == QUIT)
-			{
+			{	
 				return SDL_APP_SUCCESS;
 			}
 		
